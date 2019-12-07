@@ -1,0 +1,19 @@
+{
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.iconTheme": "material-icon-theme",
+    "indentRainbow.colors": [
+        "rgba(255,255,64,0.03)",
+        "rgba(127,255,127,0.03)",
+        "rgba(255,127,255,0.03)",
+        "rgba(79,236,236,0.03)"
+    ],
+    "editor.wordWrap": "on",
+    "terminal.explorerKind": "external",
+    "terminal.external.osxExec": "/usr/local/bin/zsh",
+    "terminal.integrated.fontFamily": "'Fira Code', 'FiraCode Nerd Font Mono'",
+    "terminal.integrated.rendererType": "dom",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+}
