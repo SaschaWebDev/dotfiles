@@ -89,6 +89,7 @@ plugins=(
   colored-man-pages
   sudo
   catimg
+  web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,12 +119,37 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshconfig="vim ~/.zshrc"
+
+# custom aliases
+
+## zsh aliases
+alias zshconf="vim ~/.zshrc"
+alias update="source ~/.zshrc"
+
+## file aliases
 alias ll='colorls -lA --sd --group-directories-first'
 alias ls='colorls --group-directories-first'
+
+## navigation aliases
+alias sshdir="cd ~/.ssh"
+
+## utility aliases
+alias myip="curl http://ipecho.net/plain; echo"
+alias topten="history | commands | sort -rn | head"
+
+# custom functions
+gpr() {
+  if [ $? -eq 0 ]; then
+    github_url=`git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@' -e 's%\.git$%%'`;
+    branch_name=`git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f 3`;
+    pr_url=$github_url"/compare/master..."$branch_name
+    open $pr_url;
+  else
+    echo 'failed to open a pull request.';
+  fi
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
